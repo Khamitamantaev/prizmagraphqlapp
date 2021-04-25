@@ -11,10 +11,17 @@ type Mutation {
     password: String!
     profession: String!
     onvacation: Boolean!
+    createdby: Int!
   ): User!
 
-  signup(email: String!, password: String!, name:String!, surname: String!, profession: String!): AuthPayload
-  login(email: String! , password: String!): AuthPayload
+  signup(
+    email: String!
+    password: String!
+    name: String!
+    surname: String!
+    profession: String!
+  ): AuthPayload
+  login(email: String!, password: String!): AuthPayload
 }
 
 type AuthPayload {
@@ -30,4 +37,5 @@ type User {
   surname: String!
   profession: String!
   onvacation: Boolean!
+  createdby: Int!
 }

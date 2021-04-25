@@ -65,6 +65,7 @@ async function post(parent, args, context, info) {
       password: password,
       profession: args.profession,
       onvacation: args.onvacation,
+      createdby: userId
     },
   });
 }

@@ -18,4 +18,5 @@ model User {
   surname    String  
   profession String 
   onvacation Boolean @default(false)
+  createdby  Int @default(0)
 }
