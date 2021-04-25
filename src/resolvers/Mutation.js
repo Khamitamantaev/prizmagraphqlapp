@@ -56,13 +56,13 @@ module.exports = {
 
 async function post(parent, args, context, info) {
   const { userId } = context;
-
+  const password = await bcrypt.hash(args.password, 10);
   return await context.prisma.user.create({
     data: {
       name: args.name,
       surname: args.surname,
       email: args.email,
-      password: args.password,
+      password: password,
       profession: args.profession,
       onvacation: args.onvacation,
     },
