@@ -12,6 +12,14 @@ type Mutation {
     profession: String!
     onvacation: Boolean!
   ): User!
+
+  signup(email: String!, password: String!, name:String!, surname: String!, profession: String!): AuthPayload
+  login(email: String! , password: String!): AuthPayload
+}
+
+type AuthPayload {
+  token: String
+  user: User
 }
 
 type User {
