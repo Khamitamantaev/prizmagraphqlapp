@@ -1,6 +1,6 @@
 const { ApolloServer } = require("apollo-server");
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 let users = [
   {
     id: "user-0",
@@ -26,21 +26,29 @@ let users = [
 ];
 
 // 2
+let idCount = users.length;
 const resolvers = {
   Query: {
     info: () => `This is the API of a Hackernews Clone`,
     users: () => users,
   },
-  User: {
-    id: (parent) => parent.id,
-    name: (parent) => parent.name,
-    surname: (parent) => parent.surname,
-    profession: (parent) => parent.profession,
-    onvacation: (parent) => parent.onvacation,
+  Mutation: {
+    post: (parent, args) => {
+      const user = {
+        id: `user-${idCount++}`,
+        name: args.name,
+        surname: args.surname,
+        profession: args.profession,
+        onvacation: args.onvacation,
+      };
+      users.push(user);
+      return user;
+    },
   },
 };
 
 // 3
+
 const server = new ApolloServer({
   typeDefs: fs.readFileSync(path.join(__dirname, "schema.graphql"), "utf8"),
   resolvers,
