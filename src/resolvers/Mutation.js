@@ -52,7 +52,27 @@ module.exports = {
   signup,
   login,
   post,
+  update,
 };
+
+// const updateUser = await prisma.user.update({
+//   where: {
+//     email: 'viola@prisma.io',
+//   },
+//   data: {
+//     name: 'Viola the Magnificent',
+//   },
+// })
+async function update(parent, args, context) {
+  return await context.prisma.user.update({
+    where: {
+      email: args.email,
+    },
+    data: {
+      onvacation: args.onvacation,
+    },
+  });
+}
 
 async function post(parent, args, context, info) {
   const { userId } = context;
@@ -65,7 +85,7 @@ async function post(parent, args, context, info) {
       password: password,
       profession: args.profession,
       onvacation: args.onvacation,
-      createdby: userId
+      createdby: userId,
     },
   });
 }

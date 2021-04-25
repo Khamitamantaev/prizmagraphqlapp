@@ -4,6 +4,11 @@ type Query {
 }
 
 type Mutation {
+  update(
+    email: String!
+    onvacation: Boolean!
+  ): User!
+
   post(
     name: String!
     surname: String!
