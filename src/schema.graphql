@@ -1,16 +1,25 @@
- type Query {
-    info: String!
-    users: [User!]!
-  }
+type Query {
+  info: String!
+  users: [User!]!
+}
 
-  type Mutation {
-    post(name: String!, surname: String!,profession: String!, onvacation: Boolean!): User!
-  }
-
-  type User {
-    id: ID!
+type Mutation {
+  post(
     name: String!
     surname: String!
+    email: String!
+    password: String!
     profession: String!
     onvacation: Boolean!
-  }
+  ): User!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  password: String!
+  surname: String!
+  profession: String!
+  onvacation: Boolean!
+}

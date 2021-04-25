@@ -1,7 +1,9 @@
 -- CreateTable
-CREATE TABLE `Link` (
+CREATE TABLE `User` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(191) NOT NULL,
+    `email` VARCHAR(191) NOT NULL,
+    `password` VARCHAR(191) NOT NULL,
     `surname` VARCHAR(191) NOT NULL,
     `profession` VARCHAR(191) NOT NULL,
     `onvacation` BOOLEAN NOT NULL,

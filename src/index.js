@@ -15,6 +15,8 @@ const resolvers = {
       const newUser = context.prisma.user.create({
         data: {
           name: args.name,
+          email: args.email,
+          password: args.password,
           surname: args.surname,
           profession: args.profession,
           onvacation: args.onvacation,
